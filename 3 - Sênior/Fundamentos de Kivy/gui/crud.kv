@@ -1,0 +1,81 @@
+<Principal>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 10
+
+    ScrollView:
+        BoxLayout:
+            id: clientes
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+
+        Label:
+            text: 'Nome'
+        TextInput:
+            id: nome
+        Label:
+            text: 'Idade'
+        TextInput:
+            id: idade
+    
+    BoxLayout:
+        size_hint_y: None
+        height: '40dp'
+
+        Button:
+            text: 'Cadastrar'
+            size_hint_x: 15
+            on_release: root.cadastrar_cliente()
+        Button:
+            text: 'Remover'
+            size_hint_x: 15
+            on_release: root.remover_cliente()
+        Button:
+            text: 'Editar'
+            size_hint_x: 15
+            on_release: root.editar_cliente()
+
+<BotaoListagem>:
+    font_size: 30
+    size_hint_y: None
+    height: 50
+
+<ExclusaoPopup>:
+    size_hint: .8, .5
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Tem certeza que deseja remover o cliente?'
+            font_size: 25
+            halign: 'center'
+            valign: 'middle'
+        BoxLayout:
+            size_hint: 1, .2
+            Button:
+                text: 'Sim'
+                on_release:
+                    root.funcao()
+                    root.dismiss()
+            Button:
+                text: 'Não'
+                on_release: root.dismiss()
+
+<MensagemPopup>:
+    size_hint: .8, .5
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: 'Você deve preencher todos os campos'
+            font_size: 25
+            halign: 'center'
+            valign: 'middle'
+        BoxLayout:
+            Button:
+                size_hint: .8, .5
+                text: 'Voltar'
+                on_release: root.dismiss()
